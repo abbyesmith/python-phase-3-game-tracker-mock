@@ -22,11 +22,11 @@ class TestPlayer:
         player = Player("Saaammmm")
         assert (hasattr(player, "username"))
 
-        player_2 = Player("y")
-        assert (not hasattr(player_2, "username"))
+        # player_2 = Player("y")
+        # assert (not hasattr(player_2, "username"))
 
-        player_3 = Player("this_username_is_too_long")
-        assert (not hasattr(player_3, "username"))
+        # player_3 = Player("this_username_is_too_long")
+        # assert (not hasattr(player_3, "username"))
 
     def test_username_setter(self):
         '''Can change the player's username'''
@@ -34,19 +34,19 @@ class TestPlayer:
         player.username = "ActuallyTopher"
         assert (player.username == "ActuallyTopher")
 
-    # def test_raise_exception_for_invalid_username(self):
-    #     '''raise exception for an invalid username'''
-    #     with pytest.raises(Exception):
-    #         player = Player("this_username_is_too_long")
-    #     with pytest.raises(Exception):
-    #         player_2 = Player("y")
-    #     with pytest.raises(Exception):
-    #         player_3 = Player(1)
+    def test_raise_exception_for_invalid_username(self):
+        '''raise exception for an invalid username'''
+        with pytest.raises(Exception):
+            player = Player("this_username_is_too_long")
+        with pytest.raises(Exception):
+            player_2 = Player("y")
+        with pytest.raises(Exception):
+            player_3 = Player(1)
 
     def test_has_many_results(self):
         '''Player has many results.'''
         game = Game("Skribbl.io")
-        player = Player('Saaammmm')
+        player = Player('Phil')
         player_2 = Player('ActuallyTopher')
         result_1 = Result(player, game, 2000)
         result_2 = Result(player, game, 3500)
